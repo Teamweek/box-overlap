@@ -2,8 +2,10 @@
   "name": "box-overlap",
   "version": "1.1.0",
   "description": "Check whether two boxes overlap",
-  "main": "index.js",
+  "main": "dist.js",
   "scripts": {
+    "prepublishOnly": "npm run dist",
+    "dist": "./node_modules/.bin/babel index.js --out-file dist.js",
     "test": "mocha"
   },
   "repository": {
@@ -30,11 +32,13 @@
   "files": [
     "LICENSE",
     "README.md",
-    "index.js",
-    "test",
+    "dist.js",
     "package.json"
   ],
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.4.2",
     "mocha": "^3.2.0"
   }
 }
